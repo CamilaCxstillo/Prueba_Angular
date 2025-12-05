@@ -1,0 +1,34 @@
+<div class="p-6 max-w-2xl mx-auto">
+  <h2 class="text-2xl font-bold mb-4">Buscar Películas</h2>
+
+
+  <div class="form-control">
+    <input class="input input-bordered w-full" placeholder="Avengers, Batman..." [(ngModel)]="query" />
+
+  </div>
+
+
+  <button class="btn btn-primary mt-3 w-full" (click)="search()">Buscar</button>
+
+
+  <div *ngIf="svc.loading()" class="mt-4 text-center">
+    <span class="loading loading-spinner loading-lg"></span>
+  </div>
+
+
+  <p *ngIf="svc.error()" class="text-red-500 mt-4">{{ svc.error() }}</p>
+
+
+  <div class="grid md:grid-cols-2 gap-4 mt-6">
+    <div *ngFor="let movie of svc.movies()" class="card shadow-lg">
+      <figure>
+        <img [src]="movie.Poster" class="h-64 w-full object-cover" />
+      </figure>
+      <div class="card-body">
+        <h3 class="card-title">{{ movie.Title }}</h3>
+        <p>{{ movie.Year }}</p>
+        <a [routerLink]="['/details', movie.imdbID]" class="btn btn-sm btn-primary mt-2">Detalles</a>
+      </div>
+    </div>
+  </div>
+</div>
