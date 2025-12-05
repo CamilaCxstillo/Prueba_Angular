@@ -1,27 +1,17 @@
-import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component/home.component';
+import { LayoutComponent } from './layout/layout.component';
+import { SearchComponent } from './pages/search/search.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 export const routes: Routes = [
-  { path: '',
-    component: HomeComponent 
-  },
+
   {
-    path: 'search',
-    loadComponent: () =>
-      import('./pages/search/search.component').then(m => m.SearchComponent)
-  },
-  {
-    path: 'history',
-    loadComponent: () =>
-      import('./pages/history/history.component').then(m => m.HistoryComponent)
-  },
-  {
-    path: 'movie/:id',
-    loadComponent: () =>
-      import('./pages/movie-detail/movie-detail.component').then(m => m.DetailsComponent)
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: '', component: HomeComponent },
+      { path: 'search', component: SearchComponent },
+      { path: 'history', component: HistoryComponent }
+    ]
   },
 
-  { path: '**', 
-    redirectTo: '' 
-  },
 ];
