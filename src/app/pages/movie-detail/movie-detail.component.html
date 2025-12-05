@@ -1,0 +1,13 @@
+<div class="p-6 max-w-3xl mx-auto" *ngIf="movie">
+  <h1 class="text-3xl font-bold mb-4">{{ movie.Title }}</h1>
+
+
+  <img [src]="movie.Poster" class="rounded-lg shadow-md mb-4" />
+
+
+  <p><strong>Año:</strong> {{ movie.Year }}</p>
+  <p><strong>Género:</strong> {{ movie.Genre }}</p>
+  <p><strong>Director:</strong> {{ movie.Director }}</p>
+  <p><strong>Actores:</strong> {{ movie.Actors }}</p>
+  <p class="mt-4">{{ movie.Plot }}</p>
+</div>
