@@ -1,0 +1,10 @@
+<div class="card shadow-lg bg-base-200 p-4 rounded-xl">
+  <img [src]="movie.Poster" class="rounded-lg mb-3" />
+
+  <h2 class="text-xl font-bold">{{ movie.Title }}</h2>
+  <p class="opacity-70">{{ movie.Year }}</p>
+
+  <p *ngIf="movie?.['imdbRating']">
+     {{ movie?.['imdbRating'] }}
+  </p>
+</div>
