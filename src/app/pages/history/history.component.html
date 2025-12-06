@@ -1,1 +1,17 @@
 
+<div class="p-6 max-w-xl mx-auto">
+  <h2 class="text-2xl font-bold mb-4">Historial de Búsquedas</h2>
+
+
+  <button class="btn btn-error mb-4" (click)="clear()">Limpiar historial</button>
+
+
+  <ul class="list-disc pl-6" *ngIf="svc.history().length > 0">
+    <li *ngFor="let item of svc.history()">{{ item }}</li>
+  </ul>
+
+
+  <p *ngIf="svc.history().length === 0" class="opacity-70">
+    No hay historial aún.
+  </p>
+</div>
